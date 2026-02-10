@@ -49,7 +49,69 @@
         <h2>实验性仓位</h2>
         <p>在核心资产之外，拿出极小部分比例（如 20 USD 规模）进行加密资产等高波动领域的实验，旨在理解前沿金融技术，不影响整体财务稳健。</p>
     </section>
-
+<section class="card" style="height: 500px;">
+        <h2>📊 纳指 100 实时趋势</h2>
+        <div class="tradingview-widget-container">
+          <div id="tradingview_b0v7s"></div>
+          <div class="tradingview-widget-copyright"><a href="https://cn.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">在 TradingView 上追踪所有市场</span></a></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+          <script type="text/javascript">
+          new TradingView.MediumWidget(
+          {
+          "symbols": [
+            [
+              "纳斯达克100",
+              "NASDAQ:NDX|12M"
+            ],
+            [
+              "标普500",
+              "FOREXCOM:SPXUSD|12M"
+            ],
+            [
+              "上证指数",
+              "TVC:SHCOMP|12M"
+            ],
+            [
+              "黄金",
+              "TVC:GOLD|12M"
+            ]
+          ],
+          "chartOnly": false,
+          "width": "100%",
+          "height": "400",
+          "locale": "zh_CN",
+          "colorTheme": "light",
+          "autosize": false,
+          "showVolume": false,
+          "hideDateRanges": false,
+          "hideMarketStatus": false,
+          "scalePosition": "right",
+          "scaleMode": "Normal",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+          "fontSize": "10",
+          "noTimeScale": false,
+          "valuesTracking": "1",
+          "changeMode": "price-and-percent",
+          "chartType": "area",
+          "maLineColor": "#2962FF",
+          "maLineWidth": 1,
+          "maLength": 9,
+          "lineWidth": 2,
+          "lineType": 0,
+          "dateRanges": [
+            "1d|1",
+            "1m|30",
+            "3m|60",
+            "12m|1D",
+            "60m|1W",
+            "all|1M"
+          ],
+          "container_id": "tradingview_b0v7s"
+        }
+          );
+          </script>
+        </div>
+        </section>
     <footer>
         <p>&copy; 2026 Kweiyipo. 投资有风险，入市需谨慎。</p>
     </footer>
