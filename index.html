@@ -5,19 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kweiyipo | 个人主页</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; line-height: 1.8; color: #333; max-width: 700px; margin: 0 auto; padding: 40px 20px; background-color: #fafafa; }
-        header { border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 40px; }
+        /* 1. 定义颜色变量 (实现一键变色的核心) */
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #333;
+            --card-bg: #fff;
+            --accent-color: #2563eb;
+            --border-color: #eee;
+        }
+
+        /* 暗夜模式下的颜色方案 */
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --card-bg: #2d2d2d;
+            --accent-color: #60a5fa;
+            --border-color: #444;
+        }
+
+        body { 
+            font-family: -apple-system, system-ui, sans-serif; 
+            line-height: 1.8; 
+            background-color: var(--bg-color); 
+            color: var(--text-color);
+            max-width: 700px; margin: 0 auto; padding: 40px 20px;
+            transition: 0.3s; /* 让变色更丝滑 */
+        }
+
+        header { border-bottom: 2px solid var(--border-color); padding-bottom: 20px; margin-bottom: 30px; }
         h1 { margin: 0; font-size: 2em; }
+        
+        /* 导航栏样式 */
+        nav { margin-top: 15px; }
+        nav a { margin-right: 20px; text-decoration: none; color: var(--accent-color); font-weight: bold; }
+
         section { margin-bottom: 30px; }
-        h2 { color: #2563eb; font-size: 1.4em; border-left: 4px solid #2563eb; padding-left: 12px; }
-        .info-box { background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 6px; }
+        h2 { color: var(--accent-color); font-size: 1.4em; border-left: 4px solid var(--accent-color); padding-left: 12px; }
+        .info-box { background: var(--card-bg); padding: 15px; border: 1px solid var(--border-color); border-radius: 6px; }
+        
+        /* 暗夜模式开关的酷炫样式 */
+        .switch { position: fixed; top: 25px; right: 25px; display: inline-block; width: 50px; height: 26px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent-color); }
+        input:checked + .slider:before { transform: translateX(24px); }
+
         footer { text-align: center; font-size: 0.8em; color: #999; margin-top: 60px; }
     </style>
 </head>
 <body>
+
+    <label class="switch">
+        <input type="checkbox" onclick="toggleDarkMode()">
+        <span class="slider"></span>
+    </label>
+
     <header>
         <h1>Kweiyipo</h1>
         <p>本科生 · 开发者 · 投资者</p>
+        <nav>
+            <a href="index.html">🏠 首页</a>
+            <a href="invest.html">📈 投资实验室</a>
+            <a href="projects.html">💻 代码库</a>
+        </nav>
     </header>
 
     <section>
@@ -29,24 +80,19 @@
     </section>
 
     <section>
-        <h2>技术栈与学习进度</h2>
-        <ul>
-            <li><strong>编程语言：</strong> C / Python (正在深入实践中)</li>
-            <li><strong>数学基础：</strong> 高等数学 </li>
-        </ul>
-    </section>
-
-    
-        <section>
-    <h2>金融与投资</h2>
-    <p>热爱资产配置，坚持定投 <strong>纳斯达克 100 指数</strong>。</p>
-    <p><a href="invest.html" style="color: #2563eb; font-weight: bold; text-decoration: none;">点击查看：我的详细投资日志与配置策略 →</a></p>
-</section>
-     
+        <h2>金融与投资</h2>
+        <p>坚持定投 <strong>纳斯达克 100 指数</strong>，追求长期复利价值。</p>
+        <p><a href="invest.html" style="color: var(--accent-color); font-weight: bold;">查看详细投资日志 →</a></p>
     </section>
 
     <footer>
         <p>&copy; 2026 Kweiyipo. Powered by GitHub Pages.</p>
     </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
